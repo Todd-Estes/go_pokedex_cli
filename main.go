@@ -37,7 +37,15 @@ import (
 // }
 
 func main() {
+	// res, err := getPokeLocations()
+	// if err != nil {
+	// 	fmt.Println(err)
+	// } else {
+	// 	fmt.Println(res)
+	// }
+	
 	reader := bufio.NewScanner(os.Stdin)
+		location := Locations{Next: "https://pokeapi.co/api/v2/location"}
 		for {
 			fmt.Print("Pokedex > ")
 			reader.Scan()
@@ -49,6 +57,12 @@ func main() {
 			if err != nil {
 				fmt.Println(err)
 			}
+			continue
+		} else if input == "map" {
+			getPokeLocations(&location)
+			continue
+		} else if input == "mapb" {
+			getPrevPokeLocations(&location)
 			continue
 		} else {
 			fmt.Println("Unknown command")
