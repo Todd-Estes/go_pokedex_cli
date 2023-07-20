@@ -1,3 +1,3 @@
-module github.com/Todd-Estes/internal/pokecache
+module github.com/Todd-Estes/go_pokedex_cli/internal/pokecache
 
 go 1.20
