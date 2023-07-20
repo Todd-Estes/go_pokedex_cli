@@ -6,7 +6,7 @@ import (
 	"errors"
 	"io"
 	"encoding/json"
-	"github.com/Todd-Estes/internal/pokecache"
+	"github.com/Todd-Estes/go_pokedex_cli/internal/pokecache"
 )
 
 type Locations struct {

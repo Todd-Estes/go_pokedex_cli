@@ -5,7 +5,8 @@ import (
     "fmt"
 		"os"
 		"time"
-		"github.com/Todd-Estes/internal/pokecache"
+		// "github.com/Todd-Estes/internal/pokecache"
+		"github.com/Todd-Estes/go_pokedex_cli/internal/pokecache"
 )
 
 
