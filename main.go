@@ -3,7 +3,9 @@ package main
 import (
     "bufio"
     "fmt"
-    "os"
+		"os"
+		"time"
+		"github.com/Todd-Estes/internal/pokecache"
 )
 
 
@@ -37,15 +39,12 @@ import (
 // }
 
 func main() {
-	// res, err := getPokeLocations()
-	// if err != nil {
-	// 	fmt.Println(err)
-	// } else {
-	// 	fmt.Println(res)
-	// }
-	
 	reader := bufio.NewScanner(os.Stdin)
-		location := Locations{Next: "https://pokeapi.co/api/v2/location"}
+	location := Locations{Next: "https://pokeapi.co/api/v2/location"}
+	duration := time.Duration(1 * time.Minute)
+	// requestCache is a pointer
+	requestCache := pokecache.NewCache(duration)
+
 		for {
 			fmt.Print("Pokedex > ")
 			reader.Scan()
@@ -59,10 +58,10 @@ func main() {
 			}
 			continue
 		} else if input == "map" {
-			getPokeLocations(&location)
+			getPokeLocations(location.Next, &location, requestCache)
 			continue
 		} else if input == "mapb" {
-			getPrevPokeLocations(&location)
+			getPrevPokeLocations(&location, requestCache)
 			continue
 		} else {
 			fmt.Println("Unknown command")
